@@ -1,4 +1,5 @@
 // Initilization and decleration
+// Array: An array is a data structure that stores a fixed-size sequence of elements of the same type in contiguous memory locations.
 #include<iostream>
 using namespace std;
 int main(){

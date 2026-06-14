@@ -1,6 +1,7 @@
 // Program to reverse the array without using another vector
 #include <iostream>
 #include <vector>
+#include<algorithm>
 using namespace std;
 // Function to take input a vector
 vector<int> inputVector()
@@ -28,35 +29,37 @@ void printVector(const vector<int> &v)
   cout << endl;
 }
 // Function to reverse the array
-void reverse(vector<int> &v)
-{
-  /*
-  This is done ussing for loop
-  int i = 0;
-  int j = v.size() - 1;
-  while(i <= j){
-    int temp = v.at(i);
-    v.at(i) = v.at(j);
-    v.at(j) = temp;
-    i++;
-    j--;
-  }
-  */
-  // Same using for loop
-  for (int i = 0, j = v.size() - 1; i <= j; i++,j--) // we can give multiple initilization , condition and updation
-  {
-    int temp = v.at(i);
-    v.at(i) = v.at(j);
-    v.at(j) = temp;
-  }
-  return;
-}
+// void reverse(vector<int> &v)
+// {
+//   /*
+//   This is done ussing for loop
+//   int i = 0;
+//   int j = v.size() - 1;
+//   while(i <= j){
+//     int temp = v.at(i);
+//     v.at(i) = v.at(j);
+//     v.at(j) = temp;
+//     i++;
+//     j--;
+//   }
+//   */
+//   // Same using for loop
+//   for (int i = 0, j = v.size() - 1; i <= j; i++,j--) // we can give multiple initilization , condition and updation
+//   {
+//     int temp = v.at(i);
+//     v.at(i) = v.at(j);
+//     v.at(j) = temp;
+//   }
+//   return;
+// }
 int main()
 {
   vector<int> v = inputVector();
   cout << "Original Vector : ";
   printVector(v);
   cout << "Reversed vector : ";
-  reverse(v);
+  // reverse(v);
+  // we also have some inbuilt function for reversing the array(vertor)
+  reverse(v.begin(),v.end());
   printVector(v);
 }

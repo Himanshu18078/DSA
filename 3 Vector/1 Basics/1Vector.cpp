@@ -4,6 +4,7 @@ using namespace std;
 int main(){
   vector <int> v; //initilization of the vector
   // inserting / input do not use [] when the size is not defined.
+  // Vector: A vector is a dynamic array that can automatically grow or shrink in size as elements are added or removed.
   v.push_back(6);
   cout<<"Capacity right now is : "<<v.capacity()<<endl;
   v.push_back(7);

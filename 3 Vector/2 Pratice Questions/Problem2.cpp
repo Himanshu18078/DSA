@@ -38,7 +38,7 @@ vector<int> reverseCopy(const vector<int> &v)
   /*
   if i is the starting index and j is the end index then
   i + j = size - 1; size = size of the vector
-  so j = size - i - j;
+  so j = size - i - 1;
   */
   for (int i = 0; i < v.size(); i++)
   {
