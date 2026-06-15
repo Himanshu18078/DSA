@@ -44,13 +44,13 @@ void printVector(const vector<int> &v)
 //   }
 //   */
 //   // Same using for loop
-//   for (int i = 0, j = v.size() - 1; i <= j; i++,j--) // we can give multiple initilization , condition and updation
-//   {
-//     int temp = v.at(i);
-//     v.at(i) = v.at(j);
-//     v.at(j) = temp;
-//   }
-//   return;
+  // for (int i = 0, j = v.size() - 1; i <= j; i++,j--) // we can give multiple initilization , condition and updation
+  // {
+  //   int temp = v.at(i);
+  //   v.at(i) = v.at(j);
+  //   v.at(j) = temp;
+  // }
+  // return;
 // }
 int main()
 {
