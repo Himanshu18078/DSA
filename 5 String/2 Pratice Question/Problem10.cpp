@@ -1,3 +1,4 @@
+// Given a string consisting of lowecase English alphabet. Print the character that is occouring most of the time.
 #include<iostream>
 using namespace std;
 int main(){
