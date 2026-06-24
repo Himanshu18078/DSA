@@ -1,0 +1,1 @@
+// Check if array can be partitioned into 2 contigious array of equal sum?
