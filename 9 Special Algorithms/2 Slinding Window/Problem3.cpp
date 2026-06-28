@@ -1,0 +1,1 @@
+// First Negative number in every window of size k 
