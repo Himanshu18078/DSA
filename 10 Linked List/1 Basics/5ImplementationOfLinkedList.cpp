@@ -62,17 +62,17 @@ class LinkedList{
   }
   */
  void insertAtPosition(int val, int index){
-    if(index < 1 || index > size + 1){
+    if(index < 0 || index > size){
         cout << "Invalid position" << endl;
         return;
     }
 
-    if(index == 1){
+    if(index == 0){
         insertAtHead(val);
         return;
     }
 
-    if(index == size + 1){
+    if(index == size){
         insertAtTail(val);
         return;
     }
@@ -81,13 +81,75 @@ class LinkedList{
     Node* newNode = new Node(val);
     int i = 0;
     Node* temp = head;
-    while(i < index - 2){
+    while(i < index - 1){
         temp = temp->next;
         i++;
     }
     newNode->next = temp->next;
     temp->next = newNode;
     size++;
+}
+
+int getAtIdx(int idx){
+  if(idx < 0 || idx >= size){
+    cout << "Invalid Index";
+    return -1;
+  }
+  else if(idx == 0) return head->val;
+  else if(idx == size - 1) return tail->val;
+  else{
+    Node* temp = head;
+    for(int i = 0; i < idx; i++){   // strictly less than idx
+      temp = temp->next;
+    }
+    return temp->val;
+  }
+}
+// --------------------------------------------------------------------------------------------------------------
+void deleteAtHead(){
+  if(size == 0) return;
+  else if(size == 1){
+    head = head->next;
+    tail = tail->next;
+    size--;
+  }
+  else{
+    head = head->next;
+  }
+  size--;
+}
+void deleteAtTail(){
+  if(size==0)return;
+  else{
+    Node* temp = head;
+    while(temp -> next != tail)
+    {
+      temp = temp -> next;
+    }
+    temp->next = NULL;
+    tail = temp;
+    size--;
+  }
+}
+void deleteAtIndex(int index){
+  if(index < 0 || index >=size){
+    cout<<"Invalid index";
+    return;
+  }
+  else if(index == 0){
+    deleteAtHead();
+  }
+  else if(index == size -1){
+    deleteAtTail();
+  }
+  else{
+    Node* temp = head;
+    for(int i = 0; i < index -1;i++){
+      temp = temp->next;
+    }
+    temp->next = temp->next->next;
+    size--;
+  }
 }
 
   // Function to print the node
@@ -99,25 +161,29 @@ class LinkedList{
       temp = temp->next;
     }
     cout<<endl;
-    
   }
 
 };
 int main(){
   //LinkedList* ll = new LinkedList();  // new LinkedList return karta hai LinkedList*
   LinkedList ll;
-  // ll.insertAtEnd(10);
-  // ll.display();
-  // ll.insertAtEnd(20);
-  // ll.display();
-  // ll.insertAtEnd(30);
-  // ll.insertAtEnd(40);
-  // ll.display();
-  // ll.insertAtBeggining(5);
-  // ll.display();
   ll.insertAtHead(10);
-  ll.insertAtPosition(15,2);
+  ll.display();
   ll.insertAtTail(20);
   ll.display();
+  ll.insertAtTail(30);
+  ll.display();
+  ll.insertAtTail(40);
+  ll.display();
+  ll.insertAtTail(50);
+  ll.display();
+  ll.insertAtTail(60);
+  ll.display();
+  ll.deleteAtIndex(2);
+  ll.display();
+  // ll.deleteAtHead();
+  // ll.display();
+  // ll.deleteAtTail();
+  // ll.display();
   cout<<"Size is : "<<ll.size;
 }
