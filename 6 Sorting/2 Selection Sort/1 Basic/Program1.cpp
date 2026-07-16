@@ -26,6 +26,7 @@ using namespace std;
   Best Case    : O(n²)
   Average Case : O(n²)
   Worst Case   : O(n²)
+  Total number of Sort  : n - 1; 
   Unatable sorting algorithm as realtive order of the same element may change
   Space Complexity:
   O(1)   // In-place sorting

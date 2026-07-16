@@ -46,7 +46,7 @@ void insertionSort(vector<int> &arr){
 
     // Start comparing from the
     // previous element
-    int j = i - 1;
+    int j = i - 1; 
 
     // Shift larger elements one
     // position to the right
