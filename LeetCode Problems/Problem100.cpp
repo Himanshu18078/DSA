@@ -16,26 +16,19 @@ class TreeNode{
 
 bool isSameTree(TreeNode *p, TreeNode *q)
 {
-  if (p == NULL && q == NULL)
-    return true;
-
-  if ((p == NULL && q != NULL) || (p != NULL && q == NULL))
-    return false;
-
+  if (p == NULL && q == NULL) return true;
+  if ((p == NULL && q != NULL) || (p != NULL && q == NULL)) return false;
+  //the above line can be replaced by  if(p == NULL || q == NULL) return false; can't explain right now
   if (p->val != q->val)
     return false;
-
   bool isLeftSame = isSameTree(p->left, q->left);
   if (!isLeftSame)
     return false;
-
   bool isRightSame = isSameTree(p->right, q->right);
   if (!isRightSame)
     return false;
-
   return true;
 }
-
 int main()
 {
   // Tree 1

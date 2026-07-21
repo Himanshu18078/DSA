@@ -14,18 +14,22 @@ class TreeNode{
     this->right =NULL;
   }
 };
-int MaxDia = 0;
 int height(TreeNode* root){
-  if(root== NULL) return 0;
+  if(root == NULL) return 0;
   return 1 + max(height(root->left) ,height(root->right));
 }
+//int MaxDia = 0; // we don't want the global variable so we will introduce a new function
+void helper(TreeNode* root , int &maxDia){
+  if(root == NULL) return ;
+  int dia = height(root->left) + height(root->right);
+  maxDia = max(dia,maxDia);
+  helper(root->left,maxDia);
+  helper(root->right,maxDia);
+}
 int diameterOfBinaryTree(TreeNode* root){
-  if(root == NULL) return 0;
-  int dia =  height(root->left) + height(root->right);
-  MaxDia = max(MaxDia , dia);
-  diameterOfBinaryTree(root->left);
-  diameterOfBinaryTree(root->right);
-  return MaxDia;
+  int maxDia = 0;
+  helper(root , maxDia);
+  return maxDia;
 }
 int main(){
   TreeNode* a = new TreeNode(10);
