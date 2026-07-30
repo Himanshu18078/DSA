@@ -16,15 +16,26 @@ vector<int> enterVector(){
   return v;
 }
 // function to get the lower bound
-int lowerBound(const vector<int> &v , int x){
+void lowerBound(vector<int> &v , int target){
+  int n = v.size();
   int low = 0;
-  int high = v.size() -1;
-  while (low<= high)
-  {
-    int mid = low + (mid-low)/2;
-    if(v[mid] == x) return v[mid-1];
-    if(v[mid] > x ) high = mid - 1;
-    if(v[mid] < x) return v[mid - 1]; 
+  int high = n-1;
+  bool flag = false;
+  while(low<=high){
+    int mid = low + (high-low)/2;
+    if(v[mid] == target){
+      flag = true;
+      cout<<v[mid-1];
+      break;
+    }
+    else if(target > v[mid]) low = mid+1;
+    else high = mid - 1;
   }
-  return -1;
+  if(flag == false){
+    cout<<v[high];
+  }
+}
+int main(){
+  vector<int> v{1,2,4,5,9,15,18,21,24};
+  lowerBound(v,20);
 }
