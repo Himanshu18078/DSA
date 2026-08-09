@@ -20,7 +20,6 @@ void levelOrderTraversal(TreeNode* root){
   while (!queue.empty())
   {
     TreeNode* temp = queue.front();  
-    /* iski need yha pe iss liye hai bcz hum recursion thodi use krr rhe hai */
     queue.pop();
     cout<<temp->val<<" ";
     if(temp->left != NULL) queue.push(temp->left);
