@@ -22,3 +22,6 @@ bool hasCycle(ListNode *head)
   }
   return false;
 }
+int main(){
+  return 0;
+}
