@@ -22,4 +22,6 @@ int main(){
   int j = name.length() / 2;
   reverse(name.begin(), name.begin()+j);
   cout<<name;
+  cout<<name;
+  
 }
