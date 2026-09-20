@@ -15,7 +15,6 @@ int main(){
 
   sort(v.begin(), v.end());
 
-  
   int max = 1;
   int count = 1;
   for(int i = 1; i < v.size() ; i++){

@@ -1,4 +1,4 @@
-// Given a string consisting of lowecase English alphabet. Print the character that is occouring most of the time.
+// Given a string consisting of lowercase English alphabet. Print the character that is occouring most of the time.
 #include<iostream>
 using namespace std;
 int main(){
@@ -18,16 +18,17 @@ int main(){
       maxChar = s[i];
     }
   }
+  cout<<"Frequency is : " << maxFreq << "\nCharacter is : "<<maxChar<<endl;
 
-  for(int i = 0; i < s.length(); i++){
-    int count = 1;
-    for(int j = i+1; j < s.length(); j++){
-      if(s[i] == s[j]){
-        count++;
-      }
-    }
-    cout<<"Frequency of "<<s[i]<<" is "<<count<<endl;
-  }
+  // for(int i = 0; i < s.length(); i++){
+  //   int count = 1;
+  //   for(int j = i+1; j < s.length(); j++){
+  //     if(s[i] == s[j]){
+  //       count++;
+  //     }
+  //   }
+  //   cout<<"Frequency of "<<s[i]<<" is "<<count<<endl;
+  // }
 
   return 0;
 }
