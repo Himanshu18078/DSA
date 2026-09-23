@@ -13,7 +13,7 @@ int main(){
   int arr[row][column];
   for(int i = 0 ; i < row; i++){
     for(int j = 0; j < column; j++){
-      cout<<"Item at index ["<<i+1<<j+1<<"] :  ";
+      cout<<"Item at index ["<<i+1<<" , "<<j+1<<"] :  ";
       cin>>arr[i][j];
     }
   }
