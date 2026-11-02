@@ -10,17 +10,11 @@ vector<int> nextGreatest(vector<int> v){
   s.push(v[n]);
   
   for(int i = n-1 ; i>= 0; i--){
-
-    if(v[i] < s.top()){
-      result[i] = s.top();
-    } 
-    else{
-      while(!s.empty() && v[i] > s.top() ){
-        s.pop();
-      }
-      if(s.empty()) result[i] = -1;
-      else result[i] = s.top();
+    while(!s.empty() && v[i] > s.top() ){
+      s.pop(); 
     }
+    if(s.empty()) result[i] = -1;
+    else result[i] = s.top();
     s.push(v[i]);
   }
   return result;
