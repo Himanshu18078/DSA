@@ -1,56 +1,35 @@
 #include<iostream>
 #include<stack>
-#include<vector>
 using namespace std;
-// Function to print the stack (Reverse Order as stack follows LIFO)
-void printStackRev(stack<int> st){
-  while(!st.empty()){
-    cout<<st.top()<<" ";
-    st.pop();
-  }
-  cout<<endl;
-}
-// Function to print the satck in same order
+// Function to print the stack
 void printStack(stack<int> st){
-  stack<int> demo;
-  while(!st.empty()){
-    demo.push(st.top());
+  stack<int> temp;
+  while (!st.empty())
+  {
+    temp.push(st.top());
     st.pop();
   }
-  while(!demo.empty()){
-    cout<<demo.top()<<" ";
-    demo.pop();
-  }
-  cout<<endl;
-}
-// Fucntion to reverse the stack
-void reverseStack(stack<int> &st){
-  stack<int> demo1;
-  stack<int> demo2;
-  while(!st.empty()){
-    demo1.push(st.top());
-    st.pop();
-  }
-  while(!demo1.empty()){
-    demo2.push(demo1.top());
-    demo1.pop();
-  }
-  while(!demo2.empty()){
-    st.push(demo2.top());
-    demo2.pop();
+  while (!temp.empty())
+  {
+    cout<<temp.top()<<" ";
+    temp.pop();
   }
 }
-//function to reverse the stack using an vector
-void reverseStack2(stack<int>&st){
-  vector<int> v;
-  while(!st.empty()){
-    v.push_back(st.top());
+
+// Function to push the element in the bottom of the stack
+
+void addAtTheBottom(stack<int> &st , int num){
+  stack<int> temp;
+  while (!st.empty())
+  {
+    temp.push(st.top());
     st.pop();
   }
-  int n = v.size();
-  int i = 0;
-  while(i < n){
-    st.push(v[i++]);
+  st.push(num);
+  while (!temp.empty())
+  {
+   st.push(temp.top());
+   temp.pop();
   }
 }
 int main(){
@@ -60,7 +39,11 @@ int main(){
   st.push(30);
   st.push(40);
   st.push(50);
+  st.push(60);
+  cout<<"Before : "<<endl;
   printStack(st);
-  reverseStack2(st);
+  cout<<endl;
+  addAtTheBottom(st,5);
+  cout<<"After : "<<endl;
   printStack(st);
 }

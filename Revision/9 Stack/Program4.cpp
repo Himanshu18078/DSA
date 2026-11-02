@@ -1,22 +1,13 @@
-// Function to push element at any index
 #include<iostream>
 #include<stack>
-#include<vector>
 using namespace std;
+// Function to print the stack using recursion
 void printStack(stack<int> st){
   if(st.empty()) return;
+  int ele = st.top();
   st.pop();
   printStack(st);
-  cout<<st.top()<<" ";
-}
-//
-void printStack2(stack<int> &st){
-  if(st.empty()) return;
-  int x = st.top();
-  st.pop();
-  printStack2(st);
-  st.push(x);
-  cout<<st.top()<<" ";
+  cout<<ele<<" ";
 }
 int main(){
   stack<int> st;
@@ -25,5 +16,6 @@ int main(){
   st.push(30);
   st.push(40);
   st.push(50);
-  printStack2(st);
+  st.push(60);
+  printStack(st);
 }

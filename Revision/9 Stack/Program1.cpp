@@ -1,28 +1,29 @@
 #include<iostream>
 #include<stack>
 using namespace std;
-// Function to print the stack (Reverse Order as stack follows LIFO)
-void printStackRev(stack<int> st){
-  while(!st.empty()){
-    cout<<st.top()<<" ";
-    st.pop();
-  }
-  cout<<endl;
-}
-// Function to print the satck in same order
-void printStack(stack<int> st){
-  stack<int> demo;
-  while(!st.empty()){
-    demo.push(st.top());
-    st.pop();
-  }
-  while(!demo.empty()){
-    cout<<demo.top()<<" ";
-    demo.pop();
-  }
-  cout<<endl;
-}
+//fucntion to print the stack
+// void printStack(stack<int> st){
+//   while (!st.empty())
+//   {
+//     cout<<st.top()<<" ";
+//     st.pop();
+//   }
+// }
 
+// function to print the stack in reverse order
+void printStack(stack<int> st){
+  stack<int> temp;
+  while (!st.empty())
+  {
+    temp.push(st.top());
+    st.pop();
+  }
+  while (!temp.empty())
+  {
+    cout<<temp.top()<<" ";
+    temp.pop();
+  }
+}
 int main(){
   stack<int> st;
   st.push(10);
@@ -30,7 +31,6 @@ int main(){
   st.push(30);
   st.push(40);
   st.push(50);
-  cout<<st.top()<<endl;
-  printStackRev(st);
+  st.push(60);
   printStack(st);
 }

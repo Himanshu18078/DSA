@@ -1,89 +1,44 @@
-// Function to push element at any index
 #include<iostream>
 #include<stack>
-#include<vector>
 using namespace std;
-// Function to print the stack (Reverse Order as stack follows LIFO)
-void printStackRev(stack<int> st){
-  while(!st.empty()){
-    cout<<st.top()<<" ";
-    st.pop();
-  }
-  cout<<endl;
-}
-// Function to print the satck in same order
+// Function to print the stack
 void printStack(stack<int> st){
-  stack<int> demo;
-  while(!st.empty()){
-    demo.push(st.top());
+  stack<int> temp;
+  while (!st.empty())
+  {
+    temp.push(st.top());
     st.pop();
   }
-  while(!demo.empty()){
-    cout<<demo.top()<<" ";
-    demo.pop();
-  }
-  cout<<endl;
-}
-// Fucntion to reverse the stack
-void reverseStack(stack<int> &st){
-  stack<int> demo1;
-  stack<int> demo2;
-  while(!st.empty()){
-    demo1.push(st.top());
-    st.pop();
-  }
-  while(!demo1.empty()){
-    demo2.push(demo1.top());
-    demo1.pop();
-  }
-  while(!demo2.empty()){
-    st.push(demo2.top());
-    demo2.pop();
+  while (!temp.empty())
+  {
+    cout<<temp.top()<<" ";
+    temp.pop();
   }
 }
-//function to reverse the stack using an vector
-void reverseStack2(stack<int>&st){
-  vector<int> v;
-  while(!st.empty()){
-    v.push_back(st.top());
-    st.pop();
-  }
-  int n = v.size();
-  int i = 0;
-  while(i < n){
-    st.push(v[i++]);
-  }
-}
-//function to push at any index
 
-void pushAtBotttom(stack<int>&st,int num){
-  stack<int> demo;
-  while(!st.empty()){
-    demo.push(st.top());
+// Function to push the element at any index of the stack
+
+void addAtTheBottom(stack<int> &st , int num , int index){
+  if(index < 0)  return;
+  if(index > st.size()){
+    st.push(num);
+    return;
+  }
+  stack<int> temp;
+  int elementToBePop = st.size() - index;
+  while (elementToBePop > 0)
+  {
+    temp.push(st.top());
     st.pop();
+    elementToBePop--;
   }
   st.push(num);
-  while(!demo.empty()){
-    st.push(demo.top());
-    demo.pop();
+  while (!temp.empty())
+  {
+   st.push(temp.top());
+   temp.pop();
   }
 }
-void pushAtIndex(stack<int>&st,int index,int num){
-  int n = st.size() - index;
-  stack<int> demo;
-  int i = 1;
-  while(i <= n){
-    demo.push(st.top());
-    st.pop();
-    i++;
-  }
-  st.push(num);
-  while(!demo.empty()){
-    st.push(demo.top());
-    demo.pop();
-  }
-};
-
 int main(){
   stack<int> st;
   st.push(10);
@@ -91,7 +46,11 @@ int main(){
   st.push(30);
   st.push(40);
   st.push(50);
+  st.push(60);
+  cout<<"Before : "<<endl;
   printStack(st);
-  pushAtIndex(st , 2 , 25);
+  cout<<endl;
+  addAtTheBottom(st,70,7);
+  cout<<"After : "<<endl;
   printStack(st);
 }
