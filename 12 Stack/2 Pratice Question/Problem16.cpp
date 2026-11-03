@@ -2,6 +2,8 @@
 #include <vector>
 #include <stack>
 using namespace std;
+/*
+My approach
 vector<int> stockSpan(vector<int> v){
   int n = v.size()-1;
   vector<int> result(v.size());
@@ -26,6 +28,21 @@ vector<int> stockSpan(vector<int> v){
   }
   return result;
 }
+*/
+vector<int> stockSpan(vector<int> v){
+  int n = v.size();
+  vector<int> result(n);
+  stack<int> s;
+  result[0] = 1;
+  s.push(0);
+  for(int i = 1; i < n; i++){
+    while(!s.empty() && v[s.top()] <= v[i]) s.pop();
+    if(s.empty()) result[i] = 1;
+    else result[i] = i - s.top() ;
+    s.push(i);
+  }
+  return result;
+}
 
 void printVector(vector<int> arr){
   for(int ele :  arr){
@@ -34,7 +51,7 @@ void printVector(vector<int> arr){
   cout<<endl;
 }
 int main() {
-  vector<int> v = {100, 80,60,70,60,75,85};
+  vector<int> v = {100,80,60,81,70,60,75,85};
   printVector(v);
   vector<int> result = stockSpan(v);
   printVector(result);
